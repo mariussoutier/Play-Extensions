@@ -9,7 +9,7 @@ Using it
 
 In your `Build.scala`:
 
-    val playExtensions = RootProject(uri("git://github.com/mariussoutier/play-extensions.git"))
+    val playExtensions = RootProject(uri("git://github.com/mariussoutier/Play-Extensions.git"))
     val main = play.Project(...).dependsOn(playExtensions)
 
 
@@ -19,15 +19,15 @@ Global Behavior
 ### Auto Conf
 
 An extension to the global settings that simplifies loading custom configuration files with a
-convention-over-configuration approach. Mix in the trait com.mariussoutier.play.extensions.global.AutoConf
+convention-over-configuration approach. Mix in the trait `com.mariussoutier.play.extensions.global.AutoConf`
 and the following rules apply:
 * In development mode, a file called `dev.conf` will be loaded; after that, a file with your current
   username + .conf (as in the Java environment variable `user.name`) will be loaded
 * In test mode, a file called `test.conf` will be loaded
 * In production mode, a file called `prod.conf` will be loaded
 
-Play will always load an `application.conf` file, and this trait won't prevent this.
-
+Play will always load an `application.conf` file, and this trait won't prevent this, but you can
+override keys from the `application.conf` in your custom config files. Well, that's the whole point.
 
 
 ### Play Trailing Slash
