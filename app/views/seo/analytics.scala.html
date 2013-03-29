@@ -1,0 +1,21 @@
+@(account: String, domainName: Option[String] = None, pushes: Seq[String] = Seq.empty)
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', '@account']);
+_gaq.push(['_gat._anonymizeIp']);
+_gaq.push(['_trackPageview']);
+@domainName.map { domainName =>
+  _gaq.push(['_setDomainName', '@domainName']);
+}
+_gaq.push(['_setAllowAnchor', true]);
+_gaq.push(['_setSiteSpeedSampleRate', 5]);
+@for(push <- pushes) {
+  _gaq.push(@Html(push));
+}
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
