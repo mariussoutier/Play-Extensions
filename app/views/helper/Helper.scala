@@ -3,6 +3,12 @@ package views.html.helper
 import play.api.templates.Html
 import play.api.mvc.RequestHeader
 
+/*
+  Not everything can be solved with a template. Sometimes you need a Scala object, e.g. when
+  you want to use generics.
+*/
+
+
 /**
   * Same as Play's repeat helper but also provides you with an index.
   */
@@ -47,6 +53,7 @@ object ifAnon {
 }
 
 object `package` {
+  /* Abbreviate text after a given number of sentences */
   def abbreviatePhrases(s: String, phrases: Int = 1): String = {
     import scala.math.min
     @scala.annotation.tailrec
