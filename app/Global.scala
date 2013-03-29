@@ -1,4 +1,4 @@
-package com.mariussoutier.play.extensions.global
+package com.mariussoutier.play.global
 
 import java.io.File
 
